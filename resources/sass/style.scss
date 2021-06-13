@@ -303,7 +303,7 @@ button {
     color: #ffffff;
 
     &:hover {
-      color: #ffffff;
+      color: #000000;
     }
   }
 }
@@ -746,7 +746,7 @@ ul.location li {
   a.carousel-control-prev {
     position: absolute;
     left: -90px;
-    top: 300px;
+    top: 56%;
     background-color: #ffd837;
   }
 

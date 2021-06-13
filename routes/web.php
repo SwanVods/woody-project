@@ -20,7 +20,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::view('/', 'index')->name('index');
 Route::view('/about', 'about')->name('about');
-Route::view('/products', 'products')->name('products');
+Route::view('/products', 'furniture')->name('products');
 Route::view('/contact', 'contact')->name('contact');
 
 Route::group(['prefix' => '/product'], function () {

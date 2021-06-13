@@ -45,16 +45,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                      <a class="nav-link active" href="index.html">Home<span class="sr-only">(current)</span></a>
+                      <a class="nav-link active" href="{{route('index')}}">Home<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{url('about')}}">About</a>
+                      <a class="nav-link" href="{{route('about')}}">About</a>
                     </li>
                     <li class="#" href="#">
-                      <a class="nav-link" href="furnitures.html">Furnitures</a>
+                      <a class="nav-link" href="{{route('products')}}">Furnitures</a>
                     </li>
                     <li class="nav-item" href="#">
-                      <a class="nav-link" href="contact.html">Contact Us</a>
+                      <a class="nav-link" href="{{route('contact')}}">Contact Us</a>
                     </li>
                   </ul>
                 </div>
@@ -121,11 +121,10 @@
             <div class="useful_main border_right0">
               <h2 class="useful_text">Menus</h2>
               <ul>
-                <li><a href="home.html">Home</a></li>
+                <li><a href="{{route('index')}}">Home</a></li>
                 <li><a href="{{route('about')}}">About </a></li>
-                <li><a href="company.html">Company</a></li>
-                <li><a href="{{route('product')}}">Furnitures</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="{{route('products')}}">Furnitures</a></li>
+                <li><a href="{{route('contact')}}">Contact Us</a></li>
               </ul>
 
 
@@ -139,7 +138,7 @@
             <ul class="location">
               <li><img src={{asset("images/map-icon.png")}}>Locations</li>
 
-              <li><img src={{asset("images/call-icon.png")}}><a href="company.html">+71 89078493</a></li>
+              <li><img src={{asset("images/call-icon.png")}}><a href="#">+71 89078493</a></li>
               <li><img src={{asset("images/email-icon.png")}}><a href="{{route('product')}}">demo@gmail.com</a></li>
 
             </ul>

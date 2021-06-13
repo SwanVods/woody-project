@@ -12599,7 +12599,7 @@ button {
   color: #ffffff;
 }
 .menu_main a:hover {
-  color: #ffffff;
+  color: #000000;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
@@ -13024,7 +13024,7 @@ ul.location li img {
 #my_carousel a.carousel-control-prev {
   position: absolute;
   left: -90px;
-  top: 300px;
+  top: 56%;
   background-color: #ffd837;
 }
 #my_carousel .carousel-control-prev, #my_carousel .carousel-control-next {
