@@ -13,7 +13,7 @@ class ItemController extends Controller
 
     public function index()
     {
-        $data['products'] = $this->product->getAllData();
+        $data = ['products' => $this->product->getAllData()];
         return view('index', $data); 
     }
 

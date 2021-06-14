@@ -18,7 +18,7 @@ use App\Http\Controllers\ItemController;
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::view('/', 'index')->name('index');
+Route::get('/', [ItemController::class, 'index'])->name('index');
 Route::view('/about', 'about')->name('about');
 Route::view('/products', 'furniture')->name('products');
 Route::view('/contact', 'contact')->name('contact');

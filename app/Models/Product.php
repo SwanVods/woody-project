@@ -12,11 +12,11 @@ class Product extends Model
 
     public function getAllData()
     {
-        DB::table('products')->get();
+        return DB::table('products')->get();
     }
 
     public function getData($id)
     {
-        DB::table('products')->where('id', '=', $id)->get();
+        return DB::table('products')->where('id', '=', $id)->get();
     }
 }

@@ -149,15 +149,11 @@
     </div>
     <div class="images_section_2">
       <div class="row">
-        <div class="col-sm-4">
-          <div class="image_6"><img src={{asset("images/img-6.png")}}></div>
-        </div>
-        <div class="col-sm-4">
-          <div class="image_6"><img src={{asset("images/img-7.png")}}></div>
-        </div>
-        <div class="col-sm-4">
-          <div class="image_6"><img src={{asset("images/img-8.png")}}></div>
-        </div>
+      @foreach ($products as $item)
+      <div class="col-sm-4">
+        <a class="image_6" href="#"><img src={{asset("images/img-6.png")}}></a>
+      </div>
+      @endforeach  
       </div>
     </div>
   </div>
