@@ -17,6 +17,12 @@ class ItemController extends Controller
         return view('index', $data); 
     }
 
+    public function furniture()
+    {
+        $data = ['products' => $this->product->getAllData()];
+        return view('furniture', $data); 
+    }
+
     public function show($id)
     {
         $data['product'] = $this->product->getData($id);

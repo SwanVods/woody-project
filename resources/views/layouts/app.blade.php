@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="icon" href="images/fevicon.png" type="image/gif" />
+  <link rel="icon" href="{{asset('images/fevicon.png')}}" type="image/gif" />
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
@@ -31,7 +31,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-12 col-lg-3">
-            <div class="logo"><img src="images/logo.png"></div>
+            <div class="logo"><img src="{{asset('images/logo.png')}}"></div>
           </div>
           <div class="col-sm-4 col-lg-5">
             <div class="menu-area">
@@ -95,10 +95,10 @@
                 </div>
               </div>
               <div class="middle_main">
-                <div class="shoping_bag"><img src="images/search-icon.png"></div>
+                <div class="shoping_bag"><img src="{{asset('images/search-icon.png')}}"></div>
               </div>
               <div class="right_main">
-                <div class="togle_main"><img src="images/shopping-bag.png"></div>
+                <div class="togle_main"><img src="{{asset('images/shopping-bag.png')}}"></div>
               </div>
             </div>
           </div>

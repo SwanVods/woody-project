@@ -16,7 +16,7 @@
                   <div class="left_img"><img src={{asset("images/img-2.png")}}></div>
                 </div>
                 <div class="col-sm-5">
-                  <h1 class="furniture_text">2019</h1>
+                  <h1 class="furniture_text">2021</h1>
                   <h1 class="trends_text">TRENDS</h1>
                   <h1 class="furniture_text">FURNITURE</h1>
                   <P class="lorem_text">It is a long established fact that a reader will be distracted by the readable
@@ -39,7 +39,7 @@
                   <div class="left_img"><img src={{asset("images/img-2.png")}}></div>
                 </div>
                 <div class="col-sm-5">
-                  <h1 class="furniture_text">2019</h1>
+                  <h1 class="furniture_text">2021</h1>
                   <h1 class="trends_text">TRENDS</h1>
                   <h1 class="furniture_text">FURNITURE</h1>
                   <P class="lorem_text">It is a long established fact that a reader will be distracted by the readable
@@ -62,7 +62,7 @@
                   <div class="left_img"><img src={{asset("images/img-2.png")}}></div>
                 </div>
                 <div class="col-sm-5">
-                  <h1 class="furniture_text">2019</h1>
+                  <h1 class="furniture_text">2021</h1>
                   <h1 class="trends_text">TRENDS</h1>
                   <h1 class="furniture_text">FURNITURE</h1>
                   <P class="lorem_text">It is a long established fact that a reader will be distracted by the readable
@@ -150,10 +150,10 @@
     <div class="images_section_2">
       <div class="row">
       @foreach ($products as $item)
-      <div class="col-sm-4">
-        <a class="image_6" href="#"><img src={{asset("images/img-6.png")}}></a>
-      </div>
-      @endforeach  
+        <div class="col-sm-4">
+          <a class="image_6" href="#"><img src={{asset("images/".$item->img)}}></a>
+        </div>
+      @endforeach
       </div>
     </div>
   </div>
