@@ -875,6 +875,7 @@ ul.location li {
     font-size: 14px;
     font-weight: 200;
     color: #171717;
+    margin: 0;
 
     span {
       color: #B7B7B7;
@@ -927,4 +928,8 @@ ul.location li {
   background-color: #F6F7FB;
   border: 1px solid #EAEAEA;
   color: #171717;
+}
+
+img.profile {
+  max-width: none;
 }

@@ -13138,6 +13138,7 @@ ul.location li img {
   font-size: 14px;
   font-weight: 200;
   color: #171717;
+  margin: 0;
 }
 .designed-by p span {
   color: #B7B7B7;
@@ -13183,6 +13184,10 @@ ul.location li img {
   background-color: #F6F7FB;
   border: 1px solid #EAEAEA;
   color: #171717;
+}
+
+img.profile {
+  max-width: none;
 }
 
 /*--------------------------------------------------------------------- File Name: responsive.css ---------------------------------------------------------------------*/

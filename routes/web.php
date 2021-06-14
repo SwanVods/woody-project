@@ -19,10 +19,11 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', [ItemController::class, 'index'])->name('index');
-Route::view('/about', 'about')->name('about');
 Route::get('/products', [ItemController::class, 'furniture'])->name('products');
+Route::view('/about', 'about')->name('about');
 Route::view('/contact', 'contact')->name('contact');
 Route::view('/product/details', 'details')->name('details');
+Route::view('/cart', 'cart')->name('cart');
 
 Route::group(['prefix' => '/product'], function () {
     Route::get('/', [ItemController::class, 'index'])->name('product');

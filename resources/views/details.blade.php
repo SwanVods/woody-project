@@ -53,7 +53,7 @@
             <h5>Designed by</h5>
             <div class="row">
               <div class="col-2">
-                <img src="{{asset('images/single/2.png')}}">
+                <img class="profile" src="{{asset('images/single/2.png')}}">
               </div>
               <div class="col">
                 <h4>Anne Mortgery</h4>
