@@ -149,11 +149,15 @@
     </div>
     <div class="images_section_2">
       <div class="row">
-      @foreach ($products as $item)
         <div class="col-sm-4">
-          <a class="image_6" href="{{route('details', ['id' => $item->id])}}"><img src={{asset("images/".$item->img)}}></a>
+          <a class="image_6" href="{{route('product')}}"><img src={{asset("images/img-7.png")}}></a>
         </div>
-      @endforeach
+        <div class="col-sm-4">
+          <a class="image_6" href="{{route('product')}}"><img src={{asset("images/img-8.png")}}></a>
+        </div>
+        <div class="col-sm-4">
+          <a class="image_6" href="{{route('product')}}"><img src={{asset("images/img-6.png")}}></a>
+        </div>
       </div>
     </div>
   </div>

@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->string('city');
             $table->string('state');
-            $table->string('zip code');
+            $table->string('zip_code');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

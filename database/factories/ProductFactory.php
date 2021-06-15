@@ -29,7 +29,7 @@ class ProductFactory extends Factory
         return [
             'name' => $name,
             'slug' => Str::slug($name),
-            'desc' => $this->faker->realText(320),
+            'desc' => $this->faker->realText(100),
             'price' => $this->faker->numberBetween(200000, 400000),
             'color' => $this->faker->colorName(),
             'img' => 'img-' . rand(4, 8) . '.png',

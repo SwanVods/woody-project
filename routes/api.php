@@ -20,8 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix' => '/product'], function () {
-    Route::get('/', [ItemController::class, 'index'])->name('product');
-    Route::get('/details/{id}', [ItemController::class, 'show'])->name('details');
-});
+
 Route::post('/purchase', [UserController::class, 'purchase'])->name('purchase');

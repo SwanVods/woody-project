@@ -29,10 +29,14 @@
     </div>
     <div class="images_section_2">
       <div class="row">
-        
       @foreach ($products as $item)
-        <div class="col-sm-4">
-          <a class="image_6" href="#"><img src={{asset("images/".$item->img)}}></a>
+        <div class="card mx-3 my-3" style="width: 18rem;">
+          <img class="card-img-top" src="{{"images/".$item->img}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{$item->name}}</h5>
+            <p class="card-text">{{$item->desc}}</p>
+            <a href="{{route('details', ['id' => $item->id])}}" class="btn btn-primary">Order</a>
+          </div>
         </div>
       @endforeach  
       </div>

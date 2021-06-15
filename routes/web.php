@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +17,18 @@ use App\Http\Controllers\ItemController;
 */
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/', [ItemController::class, 'newIndex'])->name('index');
+Route::get('/products', [ItemController::class, 'furniture'])->name('product');
+Route::get('/product/details/{id}', [ItemController::class, 'show'])->name('details');
+Route::get('/add-item/{id}', [ItemController::class, 'addCart'])->name('cart.add')->middleware('auth');
+
+Route::get('/cart', [ItemController::class, 'showCart'])->name('cart')->middleware('auth');
+Route::get('/cart/destroy/{id}', [ItemController::class, 'destroyItem'])->name('destroyItem');
+Route::get('/cart/update/{id}', [ItemController::class, 'updateItem'])->name('updateItem');
+
 Route::view('/about', 'about')->name('about');
 Route::view('/contact', 'contact')->name('contact');
-Route::view('/cart', 'cart')->name('cart');
-Route::get('/order', function (){
-    return view('order');
-});
+Route::view('/order', 'order');
 
-Route::get('/{any}', [ItemController::class, 'newIndex'])->where('any', '.*');

@@ -5,8 +5,8 @@
   <div class="container mt-5">
     <nav>
       <ol class="breadcrumb bg-transparent pl-0">
-        <li class="breadcrumb-item"><a href="#">Category</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Single Product</li>
+        <li class="breadcrumb-item"><a href="#">Furnitures</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{$products[0]->slug}}</li>
       </ol>
     </nav>
   </div>
@@ -17,35 +17,27 @@
       <div class="row">
         <div class="col-lg-5">
           <figure class="figure">
-            <img src="{{asset('images/single/1.png')}}" class="figure-img img-fluid">
+            <img src="{{asset('images/'.$products[0]->img)}}" class="figure-img img-fluid">
             <figcaption class="figure-caption product-thumbnail-container d-flex justify-content-between">
               <a href="">
-                <img src="{{asset('images/single/thumbnail/1.png')}}">
+                <img src="{{asset('images/'.$products[0]->img)}}">
               </a>
               <a href="">
-                <img src="{{asset('images/single/thumbnail/2.png')}}">
+                <img src="{{asset('images/'.$products[0]->img)}}">
               </a>
               <a href="">
-                <img src="{{asset('images/single/thumbnail/3.png')}}">
-              </a>
-              <a href="">
-                <img src="{{asset('images/single/thumbnail/4.png')}}">
+                <img src="{{asset('images/'.$products[0]->img)}}">
               </a>
             </figcaption>
           </figure>
         </div>
 
         <div class="col-lg-4">
-          <h3>Jeans: Giordano XI</h3>
-          <p class="text-muted">IDR 290.000.000</p>
-          <button type="button" class="btn btn-sm" style="background-color: #EAEAEF; color: white;"><i
-              class="fa fa-minus-circle"></i></button>
-          <span class="mx-2">20</span>
-          <button type="button" class="btn btn-sm btn-success" style="color: white;"><i
-              class="fa fa-plus-circle"></i></button>
+          <h3>{{$products[0]->name}}</h3>
+          <p class="text-muted" style="margin: 0">IDR {{number_format((int)$products[0]->price, 0, ',','.')}}</p>
 
-          <div class="btn-product">
-            <a href="{{route('cart')}}" class="btn btn-warning" style="color: black;">Buy</a>
+          <div class="btn-product" style="margin:0">
+            <a href="{{route('cart.add', ['id' => $products[0]->id])}}" class="btn btn-warning" style="color: black;">Buy</a>
             <a href="" class="btn" style="background-color: #EAEAEF; color: #ADADAD;">Add to Wishlist</a>
           </div>
 
@@ -56,7 +48,7 @@
                 <img class="profile" src="{{asset('images/single/2.png')}}">
               </div>
               <div class="col">
-                <h4>Anne Mortgery</h4>
+                <h4>Haruka Yuuki</h4>
                 <p>14.2K <span>Followers</span></p>
               </div>
             </div>
@@ -159,67 +151,5 @@
   <!-- Akhir Product Description & Review -->
 
 
-  <!-- Similar Product -->
-  <section class="similar-product">
-    <div class="container">
-      <div class="row mb-3">
-        <div class="col">
-          <h3>Similar Products</h3>
-          <p>Pakaian pelengkap produk di atas</p>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-4">
-          <figure class="figure">
-            <img src="{{asset('images/single/similar/1.png')}}" class="figure-img img-fluid">
-            <figcaption class="figure-caption">
-              <div class="row">
-                <div class="col">
-                  <h4>Hatty Bomb</h4>
-                  <p>Match 20%</p>
-                </div>
-                <div class="col align-items-center d-flex justify-content-end">
-                  <p style="font-size: 18px;">IDR. 209.000</p>
-                </div>
-              </div>
-            </figcaption>
-          </figure>
-        </div>
-        <div class="col-sm-4">
-          <figure class="figure">
-            <img src="{{asset('images/single/similar/2.png')}}" class="figure-img img-fluid">
-            <figcaption class="figure-caption">
-              <div class="row">
-                <div class="col">
-                  <h4>White Pure</h4>
-                  <p>Match 20%</p>
-                </div>
-                <div class="col align-items-center d-flex justify-content-end">
-                  <p style="font-size: 18px;">IDR. 209.000</p>
-                </div>
-              </div>
-            </figcaption>
-          </figure>
-        </div>
-        <div class="col-sm-4">
-          <figure class="figure">
-            <img src="{{asset('images/single/similar/3.png')}}" class="figure-img img-fluid">
-            <figcaption class="figure-caption">
-              <div class="row">
-                <div class="col">
-                  <h4>Hatty Bomb</h4>
-                  <p>Match 20%</p>
-                </div>
-                <div class="col align-items-center d-flex justify-content-end">
-                  <p style="font-size: 18px;">IDR. 209.000</p>
-                </div>
-              </div>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Akhir Similar Product -->
+ 
 @endsection
