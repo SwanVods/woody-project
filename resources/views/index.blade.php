@@ -151,7 +151,7 @@
       <div class="row">
       @foreach ($products as $item)
         <div class="col-sm-4">
-          <a class="image_6" href="#"><img src={{asset("images/".$item->img)}}></a>
+          <a class="image_6" href="{{route('details', ['id' => $item->id])}}"><img src={{asset("images/".$item->img)}}></a>
         </div>
       @endforeach
       </div>

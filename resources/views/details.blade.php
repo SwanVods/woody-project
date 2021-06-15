@@ -45,7 +45,7 @@
               class="fa fa-plus-circle"></i></button>
 
           <div class="btn-product">
-            <a href="" class="btn btn-warning text-white">Add to Cart</a>
+            <a href="{{route('cart')}}" class="btn btn-warning" style="color: black;">Buy</a>
             <a href="" class="btn" style="background-color: #EAEAEF; color: #ADADAD;">Add to Wishlist</a>
           </div>
 

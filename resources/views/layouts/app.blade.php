@@ -51,7 +51,7 @@
                       <a class="nav-link" href="{{route('about')}}">About</a>
                     </li>
                     <li class="#" href="#">
-                      <a class="nav-link" href="{{route('products')}}">Furnitures</a>
+                      <a class="nav-link" href="{{route('product')}}">Furnitures</a>
                     </li>
                     <li class="nav-item" href="#">
                       <a class="nav-link" href="{{route('contact')}}">Contact Us</a>
@@ -123,14 +123,9 @@
               <ul>
                 <li><a href="{{route('index')}}">Home</a></li>
                 <li><a href="{{route('about')}}">About </a></li>
-                <li><a href="{{route('products')}}">Furnitures</a></li>
+                <li><a href="{{route('product')}}">Furnitures</a></li>
                 <li><a href="{{route('contact')}}">Contact Us</a></li>
               </ul>
-
-
-
-
-
             </div>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 ">

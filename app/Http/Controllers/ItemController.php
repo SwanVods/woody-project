@@ -13,10 +13,15 @@ class ItemController extends Controller
 
     public function index()
     {
+        
+        return Product::with('categories:id,name')->get();
+    }
+
+    public function newIndex()
+    {
         $data = ['products' => $this->product->getAllData()];
         return view('index', $data); 
     }
-
     public function furniture()
     {
         $data = ['products' => $this->product->getAllData()];
@@ -25,7 +30,7 @@ class ItemController extends Controller
 
     public function show($id)
     {
-        $data['product'] = $this->product->getData($id);
-        return view('product.detail.'.$id, $data);
+        $data = ['products' => $this->product->getData($id)];
+        return view('details', $data);
     }
 }
