@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\XenditController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ItemController;
@@ -26,7 +27,10 @@ Route::get('/add-item/{id}', [ItemController::class, 'addCart'])->name('cart.add
 
 Route::get('/cart', [ItemController::class, 'showCart'])->name('cart')->middleware('auth');
 Route::get('/cart/destroy/{id}', [ItemController::class, 'destroyItem'])->name('destroyItem');
-Route::get('/cart/update/{id}', [ItemController::class, 'updateItem'])->name('updateItem');
+Route::get('/cart/update/{id}&action={action}', [ItemController::class, 'updateItem'])->name('updateItem');
+
+Route::get('/checkout', [XenditController::class, 'getListVA'])->name('checkout');
+Route::get('/checkout/invoice', [XenditController::class, 'createva'])->name('invoice');
 
 Route::view('/about', 'about')->name('about');
 Route::view('/contact', 'contact')->name('contact');

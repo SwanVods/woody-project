@@ -37,13 +37,15 @@
                 <p class="m-0" style="color:#B7B7B7;">IDR {{number_format((float)$item->price, 0, ",",".")}}</p>
               </div>
               <div class="col-4">
-                <form action="{{route('updateItem', $item->id)}}" style="display:inline">
+                <form action="{{route('updateItem', ['id'=>$item->id, 'action' => -1])}}" style="display:inline">
                   <button type="submit" class="btn btn-sm" style="background-color: #EAEAEF; color: white;"><i
                     class="fa fa-minus-circle"></i></button>
                 </form>
                 <span class="mx-2">{{$item->quantity}}</span>
-                <button type="button" class="btn btn-sm btn-success" style="color: white;"><i
+                <form action="{{route('updateItem', ['id'=>$item->id, 'action' => +1])}}" style="display:inline">
+                  <button type="submit" class="btn btn-sm btn-success" style="color: white;"><i
                     class="fa fa-plus-circle"></i></button>
+                </form>
               </div>
               <form class="col-2 text-right" action="{{route('destroyItem', ['id' => $item->id])}}">
                 <button type="submit" class="btn btn-sm btn-danger" style="color: white;"><i
@@ -57,11 +59,11 @@
           <form>
             <div class="form-group">
               <label for="address">Address</label>
-              <input type="text" class="form-control" id="address" placeholder="Alamat lengkap">
+              <input type="text" class="form-control" id="address" placeholder="Alamat lengkap" value="{{$address[0]->address}}">
             </div>
             <div class="form-group">
               <label for="address2">Address II</label>
-              <input type="text" class="form-control" id="address2" placeholder="Alamat tambahan">
+              <input type="text" class="form-control" id="address2" placeholder="Alamat tambahan" value="{{$address[0]->state}}">
             </div>
             <div class="form-group">
               <label for="city">City</label>
@@ -95,7 +97,7 @@
                     <small style="color: #B7B7B7;">{{$item->quantity}}</small>
                   </div>
                   <div class="col d-flex justify-content-end">
-                    <h6 class="m-0 align-self-center text-success">IDR {{number_format($subtotal, 0, ",",".")}}</h6>
+                    <h6 class="m-0 align-self-center text-success">IDR {{number_format(\Cart::get($item->id)->getPriceSum(), 0, ",",".")}}</h6>
                   </div>
                 </div>    
               @endforeach
@@ -114,21 +116,11 @@
 
               <div class="row mb-3">
                 <div class="col">
-                  <h6 class="m-0">Tax</h6>
-                  <small style="color: #B7B7B7;">Negara 20%</small>
+                  <h6 class="m-0">Pajak</h6>
+                  <small style="color: #B7B7B7;">Negara 10%</small>
                 </div>
                 <div class="col d-flex justify-content-end">
-                  <h6 class="m-0 align-self-center text-success">IDR 1.799.000</h6>
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <div class="col">
-                  <h6 class="m-0">Eid Promo</h6>
-                  <small style="color: #B7B7B7;">10% OFF</small>
-                </div>
-                <div class="col d-flex justify-content-end">
-                  <h6 class="m-0 align-self-center text-danger">-IDR 50.000.000</h6>
+                  <h6 class="m-0 align-self-center text-success">IDR {{number_format((10/100 * $subtotal), 0, ",",".")}}</h6>
                 </div>
               </div>
 
@@ -137,22 +129,32 @@
                   <h6 class="m-0">Total Harga</h6>
                 </div>
                 <div class="col d-flex justify-content-end">
-                  <h6 class="m-0 align-self-center text-primary">IDR {{number_format($total, 0, ",",".")}}</h6>
+                  <h6 class="m-0 align-self-center text-primary">IDR {{number_format($total + 201000 + (10/100 * $subtotal), 0, ",",".")}}</h6>
                 </div>
               </div>
-
+              <hr>
+              <div class="row mb-3">
+                <div class="col">
+                  <h6 class="m-0">Metode Pembayaran</h6>
+                </div>
+                <div class="col d-flex justify-content-end">
+                  <h6 class="m-0 align-self-center text-primary">Bank Mandiri (VA)</h6>
+                </div>
+              </div>
             </div>
           </div>
 
           <div class="row mt-3">
             <div class="col">
-              <button type="button" class="btn btn-block"
-                style="background-color: #EAEAEF; color: #ADADAD;">Cancel</button>
+              <a href="{{route('product')}}">
+                <button type="button" class="btn btn-block"
+                  style="background-color: #EAEAEF; color: #ADADAD;">Cancel</button>
+              </a>
             </div>
-            <div class="col">
-              <button type="button" class="btn btn-warning btn-block text-white" data-toggle="modal"
+            <form class="col" action="{{route('invoice')}}">
+              <button type="submit" class="btn btn-warning btn-block" data-toggle="modal"
                 data-target="#checkoutModal">Checkout</button>
-            </div>
+            </form>
           </div>
 
         </div>
@@ -170,9 +172,9 @@
         <div class="modal-body text-center">
           <img src="{{asset('images/cart/sukses_checkout.png')}}" class="mb-5">
           <h3>Checkout Berhasil</h3>
-          <p>Anda akan mendapatkan barang anda <br> dalam beberapa hari</p>
-          <button type="button" class="btn mt-3" style="background-color: #EAEAEF; color: #ADADAD;"
-            data-dismiss="modal">Home</button>
+          <p style="font-weight: normal">Silahkan melanjutkan untuk melakukan pembayaran</p>
+            <button type="button" class="btn mt-3" style="background-color: #EAEAEF; color: #ADADAD;"
+            data-dismiss="modal">Bayar</button>
         </div>
       </div>
     </div>

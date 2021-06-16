@@ -75,13 +75,16 @@
                   @endif
                   @else
                   <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle py-0" href="#" role="button" data-toggle="dropdown"
                       aria-haspopup="true" aria-expanded="false" v-pre>
                       {{ Auth::user()->name }}
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                      <a style="color: black" class="dropdown-item" href="{{ route('invoice') }}" >
+                        {{ __('invoice') }}
+                      </a>
+                      <a style="color: black" class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                           document.getElementById('logout-form').submit();">
                         {{ __('logout') }}
                       </a>
@@ -94,11 +97,8 @@
                   @endguest
                 </div>
               </div>
-              <div class="middle_main">
-                <div class="shoping_bag"><img src="{{asset('images/search-icon.png')}}"></div>
-              </div>
-              <div class="right_main">
-                <div class="togle_main"><img src="{{asset('images/shopping-bag.png')}}"></div>
+              <div class="right_main pl-4 mt-0" style="font-size: 18px">
+                <a href="{{__('cart')}}" class="nav-link py-0" style="color: white"><i class="fa fa-shopping-bag"></i>Cart</a>
               </div>
             </div>
           </div>

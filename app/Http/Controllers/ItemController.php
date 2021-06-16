@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\User;
 
 class ItemController extends Controller
 {
@@ -28,7 +29,7 @@ class ItemController extends Controller
         return view('furniture', $data); 
     }
 
-    public function show($id)
+    public function show($id) 
     {
         $data = ['products' => $this->product->getData($id)];
         return view('details', $data);
@@ -56,6 +57,7 @@ class ItemController extends Controller
 
     public function showCart()
     {
+        $user = new User();
         $condition = new \Darryldecode\Cart\CartCondition(array(
             'name' => 'PPN',
             'type' => 'tax',
@@ -67,6 +69,7 @@ class ItemController extends Controller
             'items' => \Cart::session(auth()->id())->condition($condition)->getContent(),
             'subtotal' => \Cart::session(auth()->id())->condition($condition)->getSubTotal(),
             'total' => \Cart::session(auth()->id())->condition($condition)->getTotal(),
+            'address' => $user->getAllData(),
         ];
         // dd($items);
         return view('cart', $items);
@@ -78,10 +81,17 @@ class ItemController extends Controller
         return back();
     }
 
-    public function updateItem($id)
+    public function updateItemplus($id)
     {
         \Cart::session(auth()->id())->update($id, [
             'quantity' => +1,
+        ]);
+        return back();
+    }
+    public function updateItem($id, $action)
+    {
+        \Cart::session(auth()->id())->update($id, [
+            'quantity' => $action,
         ]);
         return back();
     }
